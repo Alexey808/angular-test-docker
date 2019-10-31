@@ -1,12 +1,3 @@
-#### .dockerignore
-```$xslt
-node_modules
-.git
-.gitignore
-```
-
-#### Dockerfile
-```dockerfile
 # base image
 FROM node:12.2.0
 
@@ -31,9 +22,5 @@ COPY . /app
 
 # start app
 CMD ng serve --host 0.0.0.0
-```
 
-1) docker build -t example:dev .
-2) docker run -v ${PWD}:/app -v /app/node_modules -p 4201:4200 --rm example:dev
-3.1) docker inspect compassionate_wilson | grep Address
-3.2) http://172.17.0.2:4200/
+EXPOSE 4200/tcp
